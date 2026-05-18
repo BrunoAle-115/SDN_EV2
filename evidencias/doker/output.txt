@@ -1,0 +1,8 @@
+--- Registrando Output ---
+CONTAINER ID   IMAGE         COMMAND           CREATED         STATUS                              PORTS     NAMES
+2f01d1779b43   sdn_ev2_app   "python app.py"   3 seconds ago   Exited (0) Less than a second ago             contenedor_bruno
+--- Logs de la App ---
+--- REPORTE TÉCNICO ---
+Título: The Conjunction of Comet R3 PanSTARRS and the Orion Nebula
+Fecha: 2026-05-12
+Resumen: Today’s composite image features something old, something new, something borrowed, and something blu...
