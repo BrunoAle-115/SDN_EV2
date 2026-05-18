@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage('Preparation') {
+            steps {
+                script {
+                    // catchError asegura que si no hay un contenedor viejo corriendo, el pipeline NO falle y continúe
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                        echo 'Buscando y limpiando contenedores previos para evitar colisiones...'
+                        // Forzamos la detención y remoción del contenedor si quedó huérfano de un build previo
+                        bat 'docker stop contenedor_bruno'
+                        bat 'docker rm contenedor_bruno'
+                    }
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Iniciando de forma secuencial el trabajo BuildAppJob...'
+                // Llama e inicia tu trabajo de Estilo Libre que ya funciona
+                build job: 'BuildAppJob'
+            }
+        }
+    }
+}
