@@ -20,7 +20,7 @@ CMD ["python", "app.py"]
 EOF
 
 # 2. Construir Imagen
-docker build -t $IMAGE_NAME .
+docker build --no-cache -t $IMAGE_NAME .
 
 # 3. Correr Contenedor (Pasando la variable de entorno del sistema)
 docker run --name $CONTAINER_NAME -e API_KEY_NASA="$API_KEY_NASA" $IMAGE_NAME
